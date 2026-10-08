@@ -1,0 +1,66 @@
+<!-- ===================== ÚVOD (hero) ===================== -->
+<section class="wrap hero">
+  <div class="hero-text">
+    <p class="eyebrow">Political scientist</p>
+    <h1>Ivan Jarabinský</h1>
+    <p class="lede">Voting rules, electoral integrity, and the quality of democracy.</p>
+    <ul class="roles">
+      <li>Head of Election Research, Institute H21, Prague</li>
+      <li>Research Affiliate, Department of Political Science, Central European University, Vienna</li>
+    </ul>
+  </div>
+  <div class="hero-photo">
+    <img src="assets/portrait.jpg" alt="Portrait of Ivan Jarabinský" width="340" height="340">
+  </div>
+  <!-- Tlačítka: na počítači pod textem vlevo, na mobilu pod fotkou (řídí styles.css). -->
+  <div class="actions hero-actions">
+    <a class="btn" href="publications.html">Publications</a>
+    <a class="btn btn-outline" href="assets/cv.pdf">Curriculum vitae (PDF)</a>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule">{{rule_icon}}</div></div>
+
+<!-- ===================== O MNĚ (about) ===================== -->
+<section class="wrap section" id="about">
+  <div class="section-label"><h2>About</h2></div>
+  <div class="section-body prose">
+    <p>I am a political scientist who studies elections. My work ranges from the technical design of voting rules to the larger questions of electoral integrity and democratic quality, and what connects it is an interest in how elections can contribute to a fairer and better-functioning democracy.</p>
+    <p>I currently serve as Head of Election Research at Institute H21, where I work on alternative voting methods and vote recount practices across Europe, while also contributing to research on the cognitive and epistemic challenges facing modern democracy. In autumn 2026 I am a Research Affiliate in the Department of Political Science at Central European University in Vienna.</p>
+    <p>I earned my Ph.D. in Political Science at Masaryk University, and my research perspective was further shaped by stays at Central European University in Budapest, the University of Twente in the Netherlands, and the University of Piemonte Orientale in Italy. I have also held research positions at the University of Hradec Králové and the Institute for Evaluations and Social Analyses (INESAN).</p>
+    <p>Alongside my research, I deliver occasional lectures on electoral topics and contribute to public conversation on elections and democracy through commentaries, blog posts, and podcast appearances.</p>
+  </div>
+</section>
+
+<!-- ===================== AKTUÁLNÍ VÝZKUM (karty) =====================
+     Nová karta: zkopíruj blok <article class="card"> … </article> a uprav text. -->
+<section class="wrap section" id="current-research">
+  <div class="section-label"><h2>Current research</h2></div>
+  <div class="section-body cards">
+
+    <article class="card">
+      <h3>Comparative Electoral Systems</h3>
+      <p>Electoral systems in comparative perspective, with a focus on the D21 method: social choice, proportionality and representativeness, and electoral integrity.</p>
+      <a class="more" href="research.html#electoral-systems">Read more →</a>
+    </article>
+
+    <article class="card">
+      <h3>The Meaning Crisis of Democracy</h3>
+      <p>Hamlet’s problem of democracy: the tension between constant critical openness and the need for stable shared frames, now moving from theory to survey data.</p>
+      <a class="more" href="research.html#meaning-crisis">Read more →</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===================== VYBRANÉ PUBLIKACE =====================
+     Generuje se automaticky z data/publications.csv (čtyři nejnovější články). -->
+<section class="wrap section" id="selected-publications">
+  <div class="section-label"><h2>Selected publications</h2></div>
+  <div class="section-body" style="display: flex; flex-direction: column; gap: 28px">
+    <div class="items">
+{{selected_publications}}
+    </div>
+    <a class="more" href="publications.html">All publications →</a>
+  </div>
+</section>

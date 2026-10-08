@@ -1,0 +1,241 @@
+/* ==========================================================================
+   Ivan Jarabinský · personal site
+   Tokens: ink / ochre (#9A6620) / sand (#D89D4D). Type: EB Garamond + Source Sans 3.
+   ========================================================================== */
+
+:root {
+  --ground: #FFFFFF;
+  --ink: #1B1B1B;
+  --text: #2A2A2A;
+  --muted: #4A4A4A;
+  --caption: #6B6B6B;
+  --accent: #9A6620;
+  --sand: #D89D4D;
+  --tint: #FAF6EE;
+  --rule: #E8E3DA;
+  --serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Source Sans 3', 'Segoe UI', Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; }
+a { color: var(--accent); }
+a:hover { color: var(--ink); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; }
+p { margin: 0; }
+ul { list-style: none; margin: 0; padding: 0; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+
+/* Header ----------------------------------------------------------------- */
+.site-header {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 12px 32px; padding-top: 22px; padding-bottom: 18px;
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; min-height: 44px; }
+.brand svg { width: 34px; height: 28px; display: block; }
+.brand span { font-family: var(--serif); font-size: 24px; font-weight: 500; line-height: 1; }
+.nav ul { display: flex; flex-wrap: wrap; gap: 2px 6px; }
+.nav a {
+  display: inline-block; padding: 10px 10px; text-decoration: none; color: var(--ink);
+  font-weight: 500; font-size: 16px; border-bottom: 2px solid transparent;
+}
+.nav a:hover { color: var(--accent); }
+.nav a[aria-current="page"] { font-weight: 600; border-bottom-color: var(--accent); }
+
+/* Signature rule: five strokes + a sand line ---------------------------- */
+.rule { display: flex; align-items: center; gap: 10px; }
+.rule svg { width: 17px; height: 14px; flex: 0 0 auto; color: var(--sand); }
+.rule::after { content: ""; flex: 1 1 0; height: 2px; background: var(--sand); }
+
+/* Page title block -------------------------------------------------------- */
+.page-title { padding-top: 40px; padding-bottom: 28px; display: flex; flex-direction: column; gap: 18px; }
+.page-title h1 { font-size: 52px; line-height: 1.05; }
+.page-title .lede { font-family: var(--serif); font-size: 22px; color: var(--text); max-width: 640px; }
+.page-title .rule { margin-top: 10px; }
+
+/* Hero (home) ------------------------------------------------------------- */
+.hero { padding-top: 48px; padding-bottom: 56px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  grid-template-areas: "text photo" "actions photo"; align-items: center; gap: 24px 64px; }
+.hero-text { grid-area: text; display: flex; flex-direction: column; gap: 22px; }
+.hero-actions { grid-area: actions; margin-top: 0; }
+.eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.hero h1 { font-size: 64px; line-height: 1.05; }
+.hero .lede { font-family: var(--serif); font-size: 23px; line-height: 1.4; color: var(--text); max-width: 560px; }
+.roles { display: flex; flex-direction: column; gap: 6px; font-size: 16px; color: var(--muted); margin-top: 4px; }
+.roles li { display: flex; gap: 12px; align-items: baseline; }
+.roles li::before { content: ""; flex: 0 0 13px; height: 14px; background: var(--sand); position: relative; top: 1px;
+  clip-path: polygon(0 100%, 3.5px 100%, 100% 0, calc(100% - 3.5px) 0); }  /* the stroke from the mark */
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.hero-photo { grid-area: photo; display: flex; justify-content: center; }
+.hero-photo img { width: 100%; max-width: 340px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 2px; display: block; }
+
+.btn {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 2px;
+  background: var(--accent); color: var(--ground); text-decoration: none; font-weight: 600; font-size: 16px;
+  border: 1.5px solid var(--accent);
+}
+.btn:hover { background: var(--ink); border-color: var(--ink); color: var(--ground); }
+.btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-outline:hover { background: var(--tint); color: var(--ink); }
+
+/* Section: label left, content right ------------------------------------- */
+.section { padding-top: 48px; padding-bottom: 48px; display: flex; flex-wrap: wrap; gap: 24px 64px; }
+.section + .section { padding-top: 8px; }
+.section-label { flex: 0 0 200px; display: flex; flex-direction: column; gap: 10px; }
+.section-label h2 { font-size: 30px; line-height: 1.15; }
+.section-label::after { content: ""; width: 40px; height: 2px; background: var(--sand); }
+.section-body { flex: 1 1 480px; min-width: 0; }
+.prose { max-width: 720px; display: flex; flex-direction: column; gap: 16px; font-size: 18px; color: var(--text); }
+.more { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; text-decoration: none; font-size: 16px; }
+
+/* Cards --------------------------------------------------------------------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+.card { background: var(--tint); padding: 24px; border-radius: 2px; display: flex; flex-direction: column; gap: 10px; }
+.card h3 { font-size: 23px; line-height: 1.2; }
+.card p { font-size: 16px; color: var(--muted); }
+.card .more { margin-top: auto; font-size: 15px; }
+.card .years { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; color: var(--accent); }
+
+/* Lists of items (publications, media) ------------------------------------ */
+.items { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px 48px; }
+.item { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.item .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.05em; color: var(--accent); text-transform: uppercase; }
+.item h3 { font-size: 21px; line-height: 1.25; }
+.item .authors { font-size: 15px; color: var(--muted); }
+.item .where { font-size: 14px; color: var(--caption); }
+.item .where a { font-weight: 600; }
+.tag { padding: 1px 7px; border: 1px solid var(--sand); border-radius: 2px; font-weight: 500; letter-spacing: 0.02em; color: var(--muted); text-transform: none; }
+.tag-strong { background: var(--accent); border-color: var(--accent); color: var(--ground); font-weight: 600; }
+
+/* Linked titles: quiet until hovered, then ochre like the contributions lists */
+.title-link { text-decoration: none; color: inherit; transition: color 0.15s; }
+.title-link:hover { color: var(--accent); }
+
+/* Sticky category list (publications) -------------------------------------- */
+.with-aside { padding-top: 16px; padding-bottom: 64px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px 64px; }
+.aside { flex: 0 0 200px; position: sticky; top: 24px; }
+.aside a { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; text-decoration: none; color: var(--ink); font-weight: 500; border-bottom: 1px solid var(--rule); }
+.aside a span:last-child { color: var(--accent); }
+.aside a:hover { color: var(--accent); }
+.main-col { flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 56px; }
+.group { display: flex; flex-direction: column; gap: 24px; }
+.group h2 { font-size: 30px; line-height: 1.15; }
+
+/* Conferences: year marker left, entries right ---------------------------- */
+.year-row { display: flex; flex-wrap: wrap; gap: 12px 48px; padding: 24px 0; border-top: 1px solid var(--rule); }
+.year-row:first-child { border-top: 0; padding-top: 0; }
+.year { flex: 0 0 90px; font-family: var(--serif); font-size: 30px; color: var(--accent); line-height: 1; }
+.entries { flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+.entry { display: flex; flex-direction: column; gap: 4px; }
+.entry .event { font-weight: 600; font-size: 16px; }
+.entry .when { font-size: 14px; color: var(--caption); }
+.entry h3 { font-size: 20px; line-height: 1.3; margin-top: 4px; }
+.entry .coauthors { font-size: 15px; color: var(--muted); }
+.entry .kind { align-self: flex-start; margin-top: 6px; font-size: 13px; }
+
+/* Research projects ------------------------------------------------------- */
+.projects { padding-top: 16px; padding-bottom: 24px; display: flex; flex-direction: column; gap: 48px; }
+.project { display: flex; flex-direction: column; gap: 22px; }
+.project-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.project-head .num { font-family: var(--serif); font-size: 22px; color: var(--accent); }
+.project-head h2 { font-size: 36px; line-height: 1.1; }
+.project .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: -8px;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.04em; color: var(--accent); }
+.two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px 56px; }
+.two-col > div { display: flex; flex-direction: column; gap: 8px; }
+.two-col .label { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.two-col p { color: var(--text); }
+.project + .project::before { content: ""; display: block; height: 1px; background: var(--rule); margin-bottom: 26px; }
+
+/* Other ongoing work -------------------------------------------------------- */
+.work-list { max-width: 720px; display: flex; flex-direction: column; gap: 24px; }
+.work { display: flex; flex-direction: column; gap: 8px; }
+.work + .work { border-top: 1px solid var(--rule); padding-top: 24px; }
+.work h3 { font-size: 25px; line-height: 1.2; }
+.work p { color: var(--text); }
+
+/* Outputs under projects, and project tags on items -------------------------- */
+.outputs { display: flex; flex-direction: column; gap: 8px; max-width: 720px; }
+.project .outputs { margin-top: 4px; }
+.work .outputs { margin-top: 8px; }
+.outputs .label { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.outputs ul { display: flex; flex-direction: column; gap: 10px; }
+.outputs li { font-size: 15px; line-height: 1.4; }
+.outputs .o-meta { display: block; margin-bottom: 1px; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--caption); }
+.outputs a { text-decoration: none; color: var(--ink); font-weight: 500; }
+.outputs a:hover { color: var(--accent); }
+.outputs .o-title { color: var(--ink); font-weight: 500; }
+.card .outputs { margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--rule); }
+.card .outputs li { font-size: 14px; }
+.ptags { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 2px; }
+.ptag { font-size: 13px; font-weight: 600; text-decoration: none; }
+.entry .ptags { margin-top: 6px; }
+
+/* CV ----------------------------------------------------------------------- */
+.cv-rows { display: flex; flex-direction: column; }
+.cv-row { display: flex; flex-wrap: wrap; gap: 8px 32px; padding: 16px 0; border-top: 1px solid var(--rule); }
+.cv-row:first-child { border-top: 0; padding-top: 0; }
+.cv-row .period { flex: 0 0 160px; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; color: var(--accent); padding-top: 4px; }
+.cv-row .what { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.cv-row .what strong { font-family: var(--serif); font-size: 20px; font-weight: 500; line-height: 1.25; }
+.cv-row .what span { font-size: 15px; color: var(--muted); }
+.cv-row .what em { font-style: normal; font-size: 14px; color: var(--caption); }
+
+/* Footer ------------------------------------------------------------------- */
+.site-footer { padding-bottom: 48px; }
+.site-footer .rule { margin-bottom: 36px; }
+.footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px 48px; font-size: 15px; color: var(--muted); }
+.footer-grid .contact { display: flex; flex-direction: column; gap: 6px; }
+.footer-grid .contact span { font-family: var(--serif); font-size: 20px; color: var(--ink); }
+.footer-grid .contact a { text-decoration: none; font-weight: 500; }
+.footer-links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 0; }
+.footer-links li { display: flex; align-items: center; }
+.footer-links li::before { content: ""; flex: 0 0 11px; height: 12px; background: var(--sand);
+  clip-path: polygon(0 100%, 3px 100%, 100% 0, calc(100% - 3px) 0); margin-right: 2px; }  /* the stroke as bullet */
+.footer-links li + li { margin-left: 14px; }
+.footer-links a { display: inline-block; padding: 10px 6px; text-decoration: none; color: var(--ink); font-weight: 500; }
+.footer-links a:hover { color: var(--accent); }
+.footer-grid .copy { align-self: flex-end; }
+
+/* Responsive --------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; grid-template-areas: "text" "photo" "actions"; gap: 28px; }
+  .hero-actions .btn { flex: 1 1 220px; justify-content: center; }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .wrap { padding-left: 20px; padding-right: 20px; }
+  .site-header { padding-top: 16px; padding-bottom: 12px; }
+  .nav a { padding: 10px 8px; font-size: 15px; }
+  .hero { padding-top: 24px; padding-bottom: 36px; }
+  .hero h1 { font-size: 46px; }
+  .hero .lede { font-size: 20px; }
+  .page-title h1 { font-size: 40px; }
+  .page-title .lede { font-size: 19px; }
+  .section { padding-top: 32px; padding-bottom: 32px; gap: 16px; }
+  .section-label { flex-basis: 100%; }
+  .prose { font-size: 17px; }
+  .aside { position: static; flex-basis: 100%; }
+  .aside ul { display: flex; flex-wrap: wrap; gap: 0 20px; }
+  .aside a { border-bottom: 0; padding: 8px 0; }
+  .year { flex-basis: 100%; font-size: 24px; }
+  .project-head h2 { font-size: 28px; }
+  .cv-row .period { flex-basis: 100%; padding-top: 0; }
+  .footer-links { flex-direction: column; align-items: flex-start; gap: 0; }
+  .footer-links li + li { margin-left: 0; }
+}
