@@ -276,6 +276,8 @@ BUILDERS = {"home": build_home, "research": build_research, "publications": buil
 TITLES = {"home": "Ivan Jarabinský · Political scientist", "research": "Research · Ivan Jarabinský",
           "publications": "Publications · Ivan Jarabinský", "conferences": "Conferences · Ivan Jarabinský",
           "media": "Media · Ivan Jarabinský", "cv": "Curriculum vitae · Ivan Jarabinský"}
+ANALYTICS = ('<script data-goatcounter="https://ijarab.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>\n')  # visit counter, no cookies
+
 DESCRIPTION = ("Ivan Jarabinský is a political scientist studying elections, electoral integrity and voting methods. "
                "Head of Election Research at Institute H21, Prague.")
 
@@ -307,7 +309,8 @@ def shell(pid, body, css_href="styles.css"):
             f'<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">\n'
             f'<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">\n'
             f'<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-            f'<link rel="stylesheet" href="{FONTS}">\n<link rel="stylesheet" href="{css_href}">\n</head>\n<body>\n'
+            f'<link rel="stylesheet" href="{FONTS}">\n<link rel="stylesheet" href="{css_href}">\n'
+            f'{ANALYTICS}</head>\n<body>\n'
             + externalise(header(pid) + f'<main>\n{body}</main>\n' + footer()) + '</body>\n</html>\n')
 
 
